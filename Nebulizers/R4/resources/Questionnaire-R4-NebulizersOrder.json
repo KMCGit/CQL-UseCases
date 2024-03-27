@@ -1,0 +1,1110 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "NebulizersOrder",
+  "name": "NebulizersOrder",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-10-24T21:49:29.998+00:00",
+    "source": "#MT1Zbchou9jGx99d",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-dtr/StructureDefinition/dtr-questionnaire-r4"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This form is used to collect information from the provider on Home Oxygen Therapy.</p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
+      "valueCanonical": "http://hl7.org/fhir/us/davinci-dtr/Library/NebulizersOrder-prepopulation"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext",
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "patient",
+            "display": "Patient"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "description",
+          "valueString": "The patient that is to be used to pre-populate the form"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-endpoint",
+      "valueUri": "http://example.org/QuestionnaireResponse/create"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-entryMode",
+      "valueCode": "sequential"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/davinci-dtr/Questionnaire/nst-questionnaire",
+  "version": "1.0.0",
+  "title": "Nebulizers Order Template",
+  "status": "draft",
+  "subjectType": ["Patient"],
+  "date": "2023-10-13T00:00:00+00:00",
+  "publisher": "Motive Medical Intelligence",
+  "item": [
+    {
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberLastName"
+              }
+            }
+          ],
+          "linkId": "1.1",
+          "text": "Last name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberFirstName"
+              }
+            }
+          ],
+          "linkId": "1.2",
+          "text": "First name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberMiddleInitial"
+              }
+            }
+          ],
+          "linkId": "1.3",
+          "text": "MI",
+          "type": "text",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberBirthDate"
+              }
+            }
+          ],
+          "linkId": "1.4",
+          "text": "DOB (MM/DD/YYYY)",
+          "type": "date",
+          "required": true
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberGender"
+              }
+            }
+          ],
+          "linkId": "1.5",
+          "text": "Gender",
+          "type": "choice",
+          "required": true,
+          "answerValueSet": "http://hl7.org/fhir/ValueSet/administrative-gender"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".memberMedicareID"
+              }
+            }
+          ],
+          "linkId": "1.6",
+          "text": "Medicare ID",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "type": "group",
+      "linkId": "1",
+      "text": "Patient Information"
+    },
+    {
+      "linkId": "2",
+      "text": "Provider (physician/NPP) who performed the Face-to-Face (F2F) evaluation (see guidance)",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".isProviderFaceToFaceVisit"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button",
+                    "display": "Radio Button"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "2.1",
+          "text": "Check here if same as ordering provider",
+          "type": "choice",
+          "required": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "Yes"
+              },
+              "initialSelected": true
+            },
+            {
+              "valueCoding": {
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".practitionerLastName"
+              }
+            }
+          ],
+          "linkId": "2.2",
+          "text": "Last name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".practitionerFirstName"
+              }
+            }
+          ],
+          "linkId": "2.3",
+          "text": "First name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".practitionerMiddleInitial"
+              }
+            }
+          ],
+          "linkId": "2.4",
+          "text": "MI",
+          "type": "text",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".practitionerSuffix"
+              }
+            }
+          ],
+          "linkId": "2.5",
+          "text": "Suffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".practitionerNPI"
+              }
+            }
+          ],
+          "linkId": "2.6",
+          "text": "NPI",
+          "type": "string",
+          "required": false
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".dateOfFaceToFaceVisit"
+              }
+            }
+          ],
+          "linkId": "2.7",
+          "text": "Date of F2F evaluation (MM/DD/YYYY)",
+          "type": "date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "Patient Diagnoses: indicate Primary (P) and, where appropriate Secondary (S)",
+      "type": "group",
+      "item": [
+        {
+          "item": [
+            {
+              "item": [
+                {
+                  "type": "choice",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                      "valueExpression": {
+                        "language": "text/cql-identifier",
+                        "expression": "\"NebulizersOrderPrepopulation\".memberObstructiveCodePrimary"
+                      }
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "5151263577165",
+                  "text": "Obstructive Code:",
+                  "enableWhen": [
+                    {
+                      "question": "1130091201798",
+                      "operator": "=",
+                      "answerBoolean": true
+                    }
+                  ],
+                  "required": true,
+                  "answerValueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.11.7777"
+                }
+              ],
+              "type": "boolean",
+              "linkId": "1130091201798",
+              "text": "Obstructive Pulmonary Disease",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ],
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "\"NebulizersOrderPrepopulation\".memberHasObstructivePrimary"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "2198612806535",
+              "text": "Cystic Fibrosis",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "3649648527207",
+              "text": "Bronchiectasis 2°",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "7875076479061",
+              "text": "Pulmonary Artery Hypertension",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "2323116734677",
+              "text": "HIV, Pneumocystosis or complications of organ transplant",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "4588843539289",
+              "text": "Persistent thick or tenacious pulmonary secretions",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "76321408363",
+              "text": "Thick, tenacious secretions with cystic fibrosis, bronchiectasis, a tracheostomy, or a tracheobronchial stent",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            }
+          ],
+          "type": "group",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".patientDiagnosesPrimary"
+              }
+            }
+          ],
+          "linkId": "3.1",
+          "text": "Primary",
+          "required": false
+        },
+        {
+          "item": [
+            {
+              "type": "boolean",
+              "linkId": "8703303499510",
+              "text": "Obstructive Pulmonary Disease",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "item": [
+                {
+                  "type": "choice",
+                  "answerValueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.11.1006",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                      "valueExpression": {
+                        "language": "text/cql-identifier",
+                        "expression": "\"NebulizersOrderPrepopulation\".memberCysticCodeSecondary"
+                      }
+                    }
+                  ],
+                  "linkId": "5632551178083",
+                  "text": "Code:",
+                  "enableWhen": [
+                    {
+                      "question": "4065170535679",
+                      "operator": "=",
+                      "answerBoolean": true
+                    }
+                  ]
+                }
+              ],
+              "type": "boolean",
+              "linkId": "4065170535679",
+              "text": "Cystic Fibrosis",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": true
+                }
+              ],
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "\"NebulizersOrderPrepopulation\".memberHasCysticSecondary"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "9519194899404",
+              "text": "Bronchiectasis 2°",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "373688800230",
+              "text": "Pulmonary Artery Hypertension",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "1948948946953",
+              "text": "HIV, Pneumocystosis or complications of organ transplant",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "8324639373698",
+              "text": "Persistent thick or tenacious pulmonary secretions",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "linkId": "9292935552281",
+              "text": "Thick, tenacious secretions with cystic fibrosis, bronchiectasis, a tracheostomy, or a tracheobronchial stent",
+              "required": true,
+              "readOnly": true,
+              "initial": [
+                {
+                  "valueBoolean": false
+                }
+              ]
+            }
+          ],
+          "type": "group",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".patientDiagnosesSecondary"
+              }
+            }
+          ],
+          "linkId": "3.2",
+          "text": "Secondary",
+          "required": false
+        },
+        {
+          "type": "group",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".patientDiagnosesOther"
+              }
+            }
+          ],
+          "linkId": "3.3",
+          "text": "Other",
+          "required": false,
+          "item": [
+            {
+              "type": "text",
+              "linkId": "1418559143369",
+              "text": "Other:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "date",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "\"NebulizersOrderPrepopulation\".nebulizersStartDate"
+          }
+        }
+      ],
+      "linkId": "4",
+      "text": "Start date, if different from date of order"
+    },
+    {
+      "item": [
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionObstructivePulmonaryDisease"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.1",
+          "text": "Obstructive Pulmonary Disease",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "enableBehavior": "any",
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "albuterol"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "arformoterol"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "budesonide"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "cromolyn"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "formoterol"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "ipratropium"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "levalbuterol"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "metaproterenol"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionCysticFibrosis"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.2",
+          "text": "Cystic Fibrosis",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "dornase alpha"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "tobramycin"
+              }
+            },
+            {
+              "valueCoding": {
+                "display": "acetylcysteine"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionBronchiectasis"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.3",
+          "text": "Bronchiectasis 2°",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "tobramycin"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionPulmonarySecretions"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.4",
+          "text": "Persistent thick or tenacious pulmonary secretions",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "acetylcystine"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionPulmonaryArteryHypertensionI"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.5",
+          "text": "Pulmonary Artery Hypertension I",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "Loprost"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionPulmonaryArteryHypertensionII"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.6",
+          "text": "Pulmonary Artery Hypertension II",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "treprostinil"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionTTS"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.7",
+          "text": "Thick, tenacious secretions, who has cystic fibrosis, bronchiectasis, a tracheostomy, or a tracheobronchial stent",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "acetylcysteine"
+              }
+            }
+          ]
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionOrganTransplant"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.8",
+          "text": "HIV, Pneumocystosis or complications of organ transplant",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "="
+            },
+            {
+              "question": "3.2",
+              "operator": "="
+            }
+          ],
+          "required": false,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "display": "Acetylcysteine"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionConcentration"
+              }
+            }
+          ],
+          "linkId": "6.9",
+          "text": "Concentration",
+          "required": false
+        },
+        {
+          "type": "text",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionFrequency"
+              }
+            }
+          ],
+          "linkId": "6.10",
+          "text": "Frequency",
+          "required": false
+        },
+        {
+          "type": "text",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionDuration"
+              }
+            }
+          ],
+          "linkId": "6.11",
+          "text": "Duration",
+          "required": false
+        },
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "\"NebulizersOrderPrepopulation\".solutionCodePrimary"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "6.12",
+          "text": "Obstructive Test",
+          "required": false,
+          "answerValueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.102.11.7777"
+        }
+      ],
+      "type": "group",
+      "linkId": "6",
+      "text": "Order Solution"
+    }
+  ]
+}

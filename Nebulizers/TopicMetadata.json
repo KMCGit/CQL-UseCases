@@ -1,0 +1,15 @@
+{
+  "topic": "Nebulizers",
+  "payers": ["cms", "sc"],
+  "mappings": [
+    {
+      "codeSystem": "hcpcs",
+      "codes": ["E9991"]
+    },
+    {
+      "codeSystem": "epichcpcs",
+      "codes": ["E9991"]
+    }
+  ],
+  "fhirVersions": ["R4"]
+}
